@@ -82,14 +82,43 @@ controller.on('rtm_close', function (bot) {
 // BEGIN EDITING HERE!
 
 controller.on('bot_channel_join', function (bot, message) {
-    bot.reply(message, "I'm here!")
+    bot.reply(message, "I'm here!");
 });
 
-controller.hears('hello', 'direct_message', function (bot, message) {
+controller.hears(['hello', 'hi'], ['direct_message', 'message', 'direct_mention'], function (bot, message) {
     bot.reply(message, 'Hello!');
 });
 
+controller.hears(['course', 'courses', 'learning', 'training'], ['direct_message','mention', 'direct_mention'], function ( bot, message) {
+	bot.reply( message, 'At the digital garage we provide free training in a number of areas including: 1)Build Your Confidence, 2)Skills for work, 3)Grow my career, 4)Grow or start a new business');
+});
 
+controller.hears(['online', 'safe', 'safety', '1'], ['direct_message', 'mention', 'direct_message'], function ( bot, message) {
+	bot.reply( message, 'We have the following courses for building confidence: 11)First Steps Online, 12)Stay Safe Online');
+});
+
+controller.hears(['work', 'email', 'spreadsheet', 'Cover', 'cv', '2'], ['direct_message', 'mention', 'direct_message'], function ( bot, message) {
+	bot.reply( message, 'We have the following courses for Skill for Work: 21)Email for Work, 22)Spreadsheets for Beginners 23) Presentations for work, 24) Build Your Personal Brand, 25) Write a Cover Letter, 26) Buile a CV');
+});
+
+controller.hears(['social', 'twitter', 'facebook', '3'], ['direct_message', 'mention', 'direct_message'], function ( bot, message) {
+	bot.reply( message, 'We have the following courses for social media: 31)An Introduction to Digital Advertising, 32)Build a digital marketing plan, 33)Social Media Strategy, 34)Writing for Social media, 35)Answering question with data');
+});
+
+controller.hears(['business', '4'], ['direct_message', 'mention', 'direct_message'], function ( bot, message) {
+	bot.reply ( message, 'We have a number of courses 41)Start Your Own Business, 42)Get your Business visible on Google, 43)Build A Simpler Website For Your Business, 44)An Introduction to Digital Marketing, 45)1:1 Coaching for YOur Career Or Business ');
+});
+
+
+controller.hears(['coding', 'programming', 'developing', '5'], ['direct_message', 'mention', 'direct_message'], function ( bot, message) {
+	bot.reply ( message, 'We have a course called 51)Introduction to Coding, which may be of use');
+});
+
+
+
+controller.hears(['Visible on Google', '42'], ['direct_message', 'mention', 'direct_message'], function ( bot, message){
+	bot.reply ( message, 'For anyone who wants to get there business more visible online. We covercreating a listing for your business on Google Maps and provide training in how to monitor and maintain your website presence on Google Search You\'ll learn how to use the Google MyBusiness platform to manage yourbusiness presence on Google.' );
+});
 /**
  * AN example of what could be:
  * Any un-handled direct mention gets a reaction and a pat response!
